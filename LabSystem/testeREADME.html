@@ -31,7 +31,7 @@
     <p class="text-center text-sm italic mb-6">CMS e Totem Serverless</p>
 
     <div class="flex flex-wrap gap-2 justify-center mb-6">
-      <button class="tab-btn px-4 py-2 rounded bg-blue-500 text-white active-tab" data-tab="visao">Visão Geral</button>
+      <button class="tab-btn px-4 py-2 rounded bg-blue-500 text-white" data-tab="visao">Visão Geral</button>
       <button class="tab-btn px-4 py-2 rounded bg-blue-500 text-white" data-tab="funcionalidades">Funcionalidades</button>
       <button class="tab-btn px-4 py-2 rounded bg-blue-500 text-white" data-tab="estrutura">Estrutura</button>
       <button class="tab-btn px-4 py-2 rounded bg-blue-500 text-white" data-tab="setup">Configuração</button>
@@ -45,7 +45,7 @@
       <p>O LabSystem Store é uma solução completa, leve e 100% serverless para o gerenciamento de uma loja de alimentos ou varejo. Ele consiste em dois módulos principais: um CMS para controle de cardápio e configurações, e um Totem de Pedidos para exibição pública e finalização via WhatsApp.</p>
     </div>
 
-    <div id="funcionalidades" class="tab-content hidden fade-in">
+    <div id="funcionalidades" class="tab-content hidden">
       <h2 class="text-xl font-semibold mb-2">✨ Funcionalidades Principais</h2>
       <ul class="list-disc pl-5 space-y-1">
         <li><strong>CMS:</strong> Backend Serverless, Persistência Local, CRUD, Backup/Restore, Customização Visual</li>
@@ -53,7 +53,7 @@
       </ul>
     </div>
 
-    <div id="estrutura" class="tab-content hidden fade-in">
+    <div id="estrutura" class="tab-content hidden">
       <h2 class="text-xl font-semibold mb-2">🛠️ Estrutura do Projeto</h2>
       <pre class="bg-gray-200 dark:bg-gray-800 p-4 rounded text-sm overflow-x-auto">
 (SEU-NEGÓCIO)/ 
@@ -67,7 +67,7 @@
       </pre>
     </div>
 
-    <div id="setup" class="tab-content hidden fade-in">
+    <div id="setup" class="tab-content hidden">
       <h2 class="text-xl font-semibold mb-2">⚙️ Configuração Inicial</h2>
       <ol class="list-decimal pl-5 space-y-1">
         <li>Crie conta no JSONBin.io e obtenha BIN ID e X-Master-Key</li>
@@ -76,13 +76,13 @@
       </ol>
     </div>
 
-    <div id="uso" class="tab-content hidden fade-in">
+    <div id="uso" class="tab-content hidden">
       <h2 class="text-xl font-semibold mb-2">📝 Guia de Uso</h2>
       <p><strong>CMS:</strong> Preencha dados, salve rascunho, publique.</p>
       <p><strong>Totem:</strong> Cliente navega, adiciona ao carrinho, finaliza via WhatsApp.</p>
     </div>
 
-    <div id="tecnologias" class="tab-content hidden fade-in">
+    <div id="tecnologias" class="tab-content hidden">
       <h2 class="text-xl font-semibold mb-2">💻 Tecnologias Envolvidas</h2>
       <ul class="list-disc pl-5 space-y-1">
         <li>HTML5 & CSS3</li>
@@ -96,7 +96,7 @@
       </div>
     </div>
 
-    <div id="labriolag" class="tab-content hidden fade-in">
+    <div id="labriolag" class="tab-content hidden">
       <h2 class="text-xl font-semibold mb-2">Produzido por LABRIOLAG</h2>
       <p><strong>Slogan:</strong> Criatividade que conecta ideias, pessoas e soluções</p>
       <p><strong>Descrição:</strong> Ecossistema de projetos digitais que une criatividade, marketing e tecnologia.</p>
@@ -116,23 +116,17 @@
     const contents = document.querySelectorAll('.tab-content');
     const toggleTheme = document.getElementById('toggleTheme');
 
-    tabs.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetId = btn.dataset.tab;
-
-        contents.forEach(content => {
-          content.classList.add('hidden');
-          content.classList.remove('fade-in');
-        });
-
-        tabs.forEach(tab => tab.classList.remove('active-tab'));
-
-        const target = document.getElementById(targetId);
-        target.classList.remove('hidden');
-        target.classList.add('fade-in');
-        btn.classList.add('active-tab');
+    function activateTab(tabId) {
+      contents.forEach(content => {
+        content.classList.add('hidden');
+        content.classList.remove('fade-in');
       });
-    });
+      tabs.forEach(tab => tab.classList.remove('active-tab'));
+      const target = document.getElementById(tabId);
+      target.classList.remove('hidden');
+      target.classList.add('fade-in');
+      document.querySelector(`.tab-btn[data-tab="${tabId}"]`).classList.add('active-tab');
+    }
 
-    toggleTheme.addEventListener('click', () => {
-     [43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/kevind3v/twitter-clone/tree/482ecf6eecd8626faf0f238680a2a145d84c6797/themes%2Fapp%2F_theme.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+    tabs.forEach(btn => {
+      btn.add[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/kevind3v/twitter-clone/tree/482ecf6eecd8626faf0f238680a2a145d84c6797/themes%2Fapp%2F_theme.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
