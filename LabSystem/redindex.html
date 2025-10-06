@@ -33,7 +33,6 @@
       align-items: center;
       justify-content: center;
       z-index: 1;
-      animation: fadeOut 3s ease forwards;
     }
 
     .logo {
@@ -56,21 +55,15 @@
       font-weight: bold;
       color: #ffffff;
       margin-bottom: 40px;
-      animation: typing 2.5s steps(40, end) forwards;
       white-space: nowrap;
       overflow: hidden;
       border-right: 2px solid #fff;
+      animation: typing 2.5s steps(40, end) forwards;
     }
 
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
-    }
-
-    @keyframes fadeOut {
-      0% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { opacity: 0; visibility: hidden; }
     }
 
     .buttons {
@@ -110,6 +103,14 @@
       from { transform: translateX(-100px); opacity: 0; }
       to { transform: translateX(0); opacity: 1; }
     }
+
+    /* Oculta o player do YouTube */
+    .audio {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
   </style>
 </head>
 <body>
@@ -122,6 +123,11 @@
       <a href="https://guilabriolag.github.io/LabSpace/LabSystem/testeREADME" class="btn access">🧭 Acessar</a>
       <a href="https://guilabriolag.github.io/HUB/" class="btn labriolag">🧠 Labriolag</a>
     </div>
+  </div>
+
+  <!-- Som de fundo via YouTube -->
+  <div class="audio">
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/CzfYPv4MtOM?autoplay=1&loop=1&playlist=CzfYPv4MtOM" frameborder="0" allow="autoplay"></iframe>
   </div>
 
   <script>
