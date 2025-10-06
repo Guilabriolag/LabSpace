@@ -112,21 +112,37 @@
   </div>
 
   <script>
-    const tabs = document.querySelectorAll('.tab-btn');
-    const contents = document.querySelectorAll('.tab-content');
-    const toggleTheme = document.getElementById('toggleTheme');
+  const tabs = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+  const toggleTheme = document.getElementById('toggleTheme');
 
-    function activateTab(tabId) {
-      contents.forEach(content => {
-        content.classList.add('hidden');
-        content.classList.remove('fade-in');
-      });
-      tabs.forEach(tab => tab.classList.remove('active-tab'));
-      const target = document.getElementById(tabId);
-      target.classList.remove('hidden');
-      target.classList.add('fade-in');
-      document.querySelector(`.tab-btn[data-tab="${tabId}"]`).classList.add('active-tab');
-    }
+  function activateTab(tabId) {
+    contents.forEach(content => {
+      content.classList.add('hidden');
+      content.classList.remove('fade-in');
+    });
+    tabs.forEach(tab => tab.classList.remove('active-tab'));
+    const target = document.getElementById(tabId);
+    target.classList.remove('hidden');
+    target.classList.add('fade-in');
+    document.querySelector(`.tab-btn[data-tab="${tabId}"]`).classList.add('active-tab');
+  }
 
-    tabs.forEach(btn => {
-      btn.add[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/kevind3v/twitter-clone/tree/482ecf6eecd8626faf0f238680a2a145d84c6797/themes%2Fapp%2F_theme.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activateTab(btn.dataset.tab);
+    });
+  });
+
+  // Ativa a primeira aba ao carregar
+  window.addEventListener('DOMContentLoaded', () => {
+    activateTab('visao');
+  });
+
+  toggleTheme.addEventListener('click', () => {
+    const html = document.documentElement;
+    html.dataset.theme = html.dataset.theme === 'light' ? 'dark' : 'light';
+  });
+  </script>
+</body>
+</html>
