@@ -21,15 +21,19 @@
 </head>
 <body class="transition-colors duration-500 bg-gray-100 text-gray-800 font-sans dark:bg-gray-900 dark:text-gray-100">
   <div class="max-w-5xl mx-auto p-6">
-    <div class="flex justify-between items-center mb-4">
-      <div class="flex items-center gap-3">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7T-L3I1t95j33Pu9cdst8hHJShqSHsjSu09-kpkNNWxkb1R2hhTSqdr3DGtTmv74y6gxla4YUaGzThga3M1UaJcPuterWAMycodowVFBpHRMmRPmOmI3zpexmBBaiHg6Mvb24ggw1dcJ3Hh8CZFRho4PjBcGxhRzR9rkcx-x1hpLpHBlEmIEyRwE3n-By/s756/20250918_001110.png" alt="Logo LabSystem" class="w-12 h-12 rounded-full" />
-        <h1 class="text-3xl font-bold">LabSystem Store</h1>
-      </div>
-      <button id="toggleTheme" class="bg-gray-300 dark:bg-gray-700 px-3 py-1 rounded text-sm">🌙 Modo</button>
+    <!-- Boas-vindas -->
+    <div class="text-center mb-6">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7T-L3I1t95j33Pu9cdst8hHJShqSHsjSu09-kpkNNWxkb1R2hhTSqdr3DGtTmv74y6gxla4YUaGzThga3M1UaJcPuterWAMycodowVFBpHRMmRPmOmI3zpexmBBaiHg6Mvb24ggw1dcJ3Hh8CZFRho4PjBcGxhRzR9rkcx-x1hpLpHBlEmIEyRwE3n-By/s756/20250918_001110.png" alt="Logo LabSystem" class="mx-auto w-20 h-20 rounded-full mb-2" />
+      <h1 class="text-3xl font-bold">Bem-vindo ao LabSystem Store</h1>
+      <p class="text-sm italic">Solução digital para lojas e restaurantes</p>
     </div>
-    <p class="text-center text-sm italic mb-6">CMS e Totem Serverless</p>
 
+    <!-- Botão modo -->
+    <div class="flex justify-end mb-4">
+      <button id="toggleTheme" class="bg-gray-300 dark:bg-gray-700 px-3 py-1 rounded text-sm">🌙 Alternar Modo</button>
+    </div>
+
+    <!-- Abas -->
     <div class="flex flex-wrap gap-2 justify-center mb-6">
       <button class="tab-btn px-4 py-2 rounded bg-blue-500 text-white" data-tab="visao">Visão Geral</button>
       <button class="tab-btn px-4 py-2 rounded bg-blue-500 text-white" data-tab="funcionalidades">Funcionalidades</button>
@@ -37,24 +41,29 @@
       <button class="tab-btn px-4 py-2 rounded bg-blue-500 text-white" data-tab="setup">Configuração</button>
       <button class="tab-btn px-4 py-2 rounded bg-blue-500 text-white" data-tab="uso">Guia de Uso</button>
       <button class="tab-btn px-4 py-2 rounded bg-blue-500 text-white" data-tab="tecnologias">Tecnologias</button>
-      <button class="tab-btn px-4 py-2 rounded bg-blue-500 text-white" data-tab="labriolag">LABRIOLAG</button>
+      <button class="tab-btn px-4 py-2 rounded bg-green-600 text-white" data-tab="adquirir">Adquirir</button>
+      <button class="tab-btn px-4 py-2 rounded bg-gray-800 text-white" data-tab="labriolag">LABRIOLAG</button>
     </div>
 
+    <!-- Conteúdo das abas -->
     <div id="visao" class="tab-content fade-in">
-      <h2 class="text-xl font-semibold mb-2">Visão Geral do Projeto</h2>
-      <p>O LabSystem Store é uma solução completa, leve e 100% serverless para o gerenciamento de uma loja de alimentos ou varejo. Ele consiste em dois módulos principais: um CMS para controle de cardápio e configurações, e um Totem de Pedidos para exibição pública e finalização via WhatsApp.</p>
+      <h2 class="text-xl font-semibold mb-2">🧭 Visão Geral</h2>
+      <p><strong>Popular:</strong> Sistema que ajuda sua loja a funcionar melhor, direto do navegador.</p>
+      <p><strong>Moderada:</strong> Solução serverless que conecta gestão interna com atendimento ao cliente.</p>
+      <p><strong>Técnica:</strong> Arquitetura modular com CMS e Totem, sincronização via JSONBin REST API.</p>
     </div>
 
-    <div id="funcionalidades" class="tab-content hidden">
-      <h2 class="text-xl font-semibold mb-2">✨ Funcionalidades Principais</h2>
-      <ul class="list-disc pl-5 space-y-1">
-        <li><strong>CMS:</strong> Backend Serverless, Persistência Local, CRUD, Backup/Restore, Customização Visual</li>
-        <li><strong>Totem:</strong> Cardápio Dinâmico, Sistema de Carrinho, Entrega Inteligente, Checkout via WhatsApp</li>
-      </ul>
+    <div id="funcionalidades" class="tab-content hidden fade-in">
+      <h2 class="text-xl font-semibold mb-2">✨ Funcionalidades</h2>
+      <p><strong>Popular:</strong> Cadastre produtos, personalize e receba pedidos pelo WhatsApp.</p>
+      <p><strong>Moderada:</strong> Controle total do cardápio, visual e dados da loja.</p>
+      <p><strong>Técnica:</strong> CRUD com localStorage, sincronização via PUT/POST, checkout com taxa dinâmica.</p>
     </div>
 
-    <div id="estrutura" class="tab-content hidden">
-      <h2 class="text-xl font-semibold mb-2">🛠️ Estrutura do Projeto</h2>
+    <div id="estrutura" class="tab-content hidden fade-in">
+      <h2 class="text-xl font-semibold mb-2">🛠️ Estrutura</h2>
+      <p><strong>Popular:</strong> Tem uma parte para o dono e outra para os clientes.</p>
+      <p><strong>Moderada:</strong> Pastas separadas para CMS e Totem.</p>
       <pre class="bg-gray-200 dark:bg-gray-800 p-4 rounded text-sm overflow-x-auto">
 (SEU-NEGÓCIO)/ 
 ├── cms_admin/
@@ -67,82 +76,41 @@
       </pre>
     </div>
 
-    <div id="setup" class="tab-content hidden">
-      <h2 class="text-xl font-semibold mb-2">⚙️ Configuração Inicial</h2>
-      <ol class="list-decimal pl-5 space-y-1">
-        <li>Crie conta no JSONBin.io e obtenha BIN ID e X-Master-Key</li>
-        <li>Configure o CMS com esses dados</li>
-        <li>Configure o Totem com BIN_ID manualmente se necessário</li>
-      </ol>
+    <div id="setup" class="tab-content hidden fade-in">
+      <h2 class="text-xl font-semibold mb-2">⚙️ Configuração</h2>
+      <p><strong>Popular:</strong> Crie conta no site, copie os códigos e cole no sistema.</p>
+      <p><strong>Moderada:</strong> Configure BIN ID e Master Key no CMS. Totem pode ler ou ser configurado manualmente.</p>
+      <p><strong>Técnica:</strong> JSONBin.io fornece credenciais. CMS publica via PUT, Totem consome via GET.</p>
     </div>
 
-    <div id="uso" class="tab-content hidden">
+    <div id="uso" class="tab-content hidden fade-in">
       <h2 class="text-xl font-semibold mb-2">📝 Guia de Uso</h2>
-      <p><strong>CMS:</strong> Preencha dados, salve rascunho, publique.</p>
-      <p><strong>Totem:</strong> Cliente navega, adiciona ao carrinho, finaliza via WhatsApp.</p>
+      <p><strong>Popular:</strong> Cadastre, personalize e publique. O cliente escolhe e finaliza no WhatsApp.</p>
+      <p><strong>Moderada:</strong> CMS configura e sincroniza. Totem exibe e calcula entrega.</p>
+      <p><strong>Técnica:</strong> CMS salva localmente, publica via JSONBin. Totem gera mensagem de checkout.</p>
     </div>
 
-    <div id="tecnologias" class="tab-content hidden">
-      <h2 class="text-xl font-semibold mb-2">💻 Tecnologias Envolvidas</h2>
-      <ul class="list-disc pl-5 space-y-1">
-        <li>HTML5 & CSS3</li>
-        <li>JavaScript (ES6+)</li>
-        <li>Tailwind CSS</li>
-        <li>JSONBin.io</li>
-        <li>API do YouTube Iframe Player</li>
+    <div id="tecnologias" class="tab-content hidden fade-in">
+      <h2 class="text-xl font-semibold mb-2">💻 Tecnologias</h2>
+      <p><strong>Popular:</strong> Usa HTML, cores bonitas e um site que guarda os dados.</p>
+      <p><strong>Moderada:</strong> Front-end com Tailwind e JavaScript moderno. Backend via JSONBin.</p>
+      <p><strong>Técnica:</strong> HTML5, Tailwind CSS, ES6+, JSONBin REST API, YouTube Iframe Player.</p>
+    </div>
+
+    <div id="adquirir" class="tab-content hidden fade-in">
+      <h2 class="text-xl font-semibold mb-2">🛒 Adquirir</h2>
+      <p>🎯 Quer usar o LabSystem na sua loja?</p>
+      <ul class="list-disc pl-5 mb-4">
+        <li>Interface moderna</li>
+        <li>Sem mensalidade</li>
+        <li>Checkout via WhatsApp</li>
+        <li>Personalização completa</li>
       </ul>
-      <div class="mt-4">
-        <iframe width="100%" height="80" src="https://www.youtube.com/embed/?listType=playlist&list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      </div>
+      <a href="https://guilabriolag.github.io/HUB/" target="_blank" class="bg-green-600 text-white px-4 py-2 rounded inline-block">🚀 Adquirir Agora</a>
     </div>
 
-    <div id="labriolag" class="tab-content hidden">
-      <h2 class="text-xl font-semibold mb-2">Produzido por LABRIOLAG</h2>
-      <p><strong>Slogan:</strong> Criatividade que conecta ideias, pessoas e soluções</p>
-      <p><strong>Descrição:</strong> Ecossistema de projetos digitais que une criatividade, marketing e tecnologia.</p>
-      <ul class="list-disc pl-5 space-y-1">
-        <li>Email: Pix@xmail.net</li>
-        <li>WhatsApp: 11 94319-8316</li>
-        <li>Pix: Pix@xmail.net</li>
-        <li>Bipa Sats: $Labriola</li>
-        <li>GitHub: <a href="https://github.com/Guilabriolag" class="text-blue-500 underline">github.com/Guilabriolag</a></li>
-        <li>Instagram: @labriolag.hub</li>
-      </ul>
-    </div>
-  </div>
-
-  <script>
-  const tabs = document.querySelectorAll('.tab-btn');
-  const contents = document.querySelectorAll('.tab-content');
-  const toggleTheme = document.getElementById('toggleTheme');
-
-  function activateTab(tabId) {
-    contents.forEach(content => {
-      content.classList.add('hidden');
-      content.classList.remove('fade-in');
-    });
-    tabs.forEach(tab => tab.classList.remove('active-tab'));
-    const target = document.getElementById(tabId);
-    target.classList.remove('hidden');
-    target.classList.add('fade-in');
-    document.querySelector(`.tab-btn[data-tab="${tabId}"]`).classList.add('active-tab');
-  }
-
-  tabs.forEach(btn => {
-    btn.addEventListener('click', () => {
-      activateTab(btn.dataset.tab);
-    });
-  });
-
-  // Ativa a primeira aba ao carregar
-  window.addEventListener('DOMContentLoaded', () => {
-    activateTab('visao');
-  });
-
-  toggleTheme.addEventListener('click', () => {
-    const html = document.documentElement;
-    html.dataset.theme = html.dataset.theme === 'light' ? 'dark' : 'light';
-  });
-  </script>
-</body>
-</html>
+    <div id="labriolag" class="tab-content hidden fade-in">
+      <h2 class="text-xl font-semibold mb-2">🧠 LABRIOLAG</h2>
+      <p>Ecossistema de projetos digitais que une criatividade, marketing e tecnologia.</p>
+      <div class="flex flex-wrap gap-3 mt-4">
+        [43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/kevind3v/twitter-clone/tree/482ecf6eecd8626faf0f238680a2a145d84c6797/themes%2Fapp%2F_theme.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")<a href="mailto:Pix@xmail.net" target="_blank" class="bg-blue-600 text-white px
