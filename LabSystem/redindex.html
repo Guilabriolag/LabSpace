@@ -9,10 +9,17 @@
       margin: 0;
       padding: 0;
       height: 100%;
-      background: radial-gradient(circle at center, #000000 0%, #0f172a 100%);
+      background: #000;
       font-family: 'Courier New', monospace;
       color: #00ff99;
       overflow: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
     }
 
     .intro {
@@ -25,8 +32,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      z-index: 1;
       animation: fadeOut 3s ease forwards;
-      z-index: 9999;
     }
 
     .intro img {
@@ -74,6 +81,7 @@
       gap: 20px;
       opacity: 0;
       animation: showButtons 0.5s ease 2.9s forwards;
+      z-index: 2;
     }
 
     @keyframes showButtons {
@@ -98,6 +106,8 @@
   </style>
 </head>
 <body>
+  <canvas id="particles"></canvas>
+
   <div class="intro">
     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7T-L3I1t95j33Pu9cdst8hHJShqSHsjSu09-kpkNNWxkb1R2hhTSqdr3DGtTmv74y6gxla4YUaGzThga3M1UaJcPuterWAMycodowVFBpHRMmRPmOmI3zpexmBBaiHg6Mvb24ggw1dcJ3Hh8CZFRho4PjBcGxhRzR9rkcx-x1hpLpHBlEmIEyRwE3n-By/s756/20250918_001110.png" alt="Logo LabSystem" />
     <div class="typing">Inicializando LabSystem Store...</div>
@@ -106,5 +116,62 @@
       <a href="https://guilabriolag.github.io/HUB/" class="btn">🧠 Labriolag</a>
     </div>
   </div>
+
+  <script>
+    // Partículas estilo hacker
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particlesArray;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    });
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = '#00ff99';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      particlesArray = [];
+      for (let i = 0; i < 100; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+  </script>
 </body>
 </html>
