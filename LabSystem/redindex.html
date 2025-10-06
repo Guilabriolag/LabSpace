@@ -11,7 +11,7 @@
       height: 100%;
       background: #000;
       font-family: 'Courier New', monospace;
-      color: #00ff99;
+      color: #fff;
       overflow: hidden;
     }
 
@@ -36,36 +36,35 @@
       animation: fadeOut 3s ease forwards;
     }
 
-    .intro img {
-      width: 100px;
-      height: 100px;
+    .logo {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       margin-bottom: 20px;
+      box-shadow: 0 0 20px #00f6ff, 0 0 40px #00f6ff, 0 0 60px #00f6ff;
       animation: pulse 2s infinite;
     }
 
-    .typing {
-      font-size: 1.2rem;
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.9; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 40px;
+      animation: typing 2.5s steps(40, end) forwards;
       white-space: nowrap;
       overflow: hidden;
-      border-right: 2px solid #00ff99;
-      width: 0;
-      animation: typing 2.5s steps(40, end) forwards, blink 0.7s step-end infinite;
+      border-right: 2px solid #fff;
     }
 
     @keyframes typing {
       from { width: 0 }
       to { width: 100% }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent }
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.8; }
-      100% { transform: scale(1); opacity: 1; }
     }
 
     @keyframes fadeOut {
@@ -79,29 +78,37 @@
       bottom: 60px;
       display: flex;
       gap: 20px;
-      opacity: 0;
-      animation: showButtons 0.5s ease 2.9s forwards;
       z-index: 2;
     }
 
-    @keyframes showButtons {
-      to { opacity: 1; }
-    }
-
     .btn {
-      background: #00ff99;
+      background: #00f6ff;
       color: #000;
       padding: 10px 20px;
-      border: none;
       font-weight: bold;
       border-radius: 5px;
       text-decoration: none;
-      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateX(0);
+      transition: transform 0.5s ease, opacity 0.5s ease;
     }
 
-    .btn:hover {
-      transform: scale(1.1);
-      background: #00ffaa;
+    .btn.access {
+      animation: slideInRight 0.8s ease 2.9s forwards;
+    }
+
+    .btn.labriolag {
+      animation: slideInLeft 0.8s ease 2.9s forwards;
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInLeft {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
     }
   </style>
 </head>
@@ -109,16 +116,15 @@
   <canvas id="particles"></canvas>
 
   <div class="intro">
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7T-L3I1t95j33Pu9cdst8hHJShqSHsjSu09-kpkNNWxkb1R2hhTSqdr3DGtTmv74y6gxla4YUaGzThga3M1UaJcPuterWAMycodowVFBpHRMmRPmOmI3zpexmBBaiHg6Mvb24ggw1dcJ3Hh8CZFRho4PjBcGxhRzR9rkcx-x1hpLpHBlEmIEyRwE3n-By/s756/20250918_001110.png" alt="Logo LabSystem" />
-    <div class="typing">Inicializando LabSystem Store...</div>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7T-L3I1t95j33Pu9cdst8hHJShqSHsjSu09-kpkNNWxkb1R2hhTSqdr3DGtTmv74y6gxla4YUaGzThga3M1UaJcPuterWAMycodowVFBpHRMmRPmOmI3zpexmBBaiHg6Mvb24ggw1dcJ3Hh8CZFRho4PjBcGxhRzR9rkcx-x1hpLpHBlEmIEyRwE3n-By/s756/20250918_001110.png" alt="Logo LabSystem" class="logo" />
+    <div class="title">Inicializando LabSystem Store...</div>
     <div class="buttons">
-      <a href="https://guilabriolag.github.io/LabSystem/home.html" class="btn">🧭 Acessar</a>
-      <a href="https://guilabriolag.github.io/HUB/" class="btn">🧠 Labriolag</a>
+      <a href="https://guilabriolag.github.io/LabSpace/LabSystem/testeREADME" class="btn access">🧭 Acessar</a>
+      <a href="https://guilabriolag.github.io/HUB/" class="btn labriolag">🧠 Labriolag</a>
     </div>
   </div>
 
   <script>
-    // Partículas estilo hacker
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
     let particlesArray;
@@ -139,6 +145,7 @@
         this.size = Math.random() * 2 + 1;
         this.speedX = Math.random() * 1 - 0.5;
         this.speedY = Math.random() * 1 - 0.5;
+        this.color = Math.random() < 0.95 ? '#00f6ff' : '#ffe600'; // 95% azul, 5% amarelo raio
       }
       update() {
         this.x += this.speedX;
@@ -147,7 +154,7 @@
         if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
       }
       draw() {
-        ctx.fillStyle = '#00ff99';
+        ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -156,7 +163,7 @@
 
     function init() {
       particlesArray = [];
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 120; i++) {
         particlesArray.push(new Particle());
       }
     }
