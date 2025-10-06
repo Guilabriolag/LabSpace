@@ -109,8 +109,64 @@
       <a href="https://guilabriolag.github.io/HUB/" target="_blank" class="bg-green-600 text-white px-4 py-2 rounded inline-block">🚀 Adquirir Agora</a>
     </div>
 
-    <div id="labriolag" class="tab-content hidden fade-in">
+  <div id="labriolag" class="tab-content hidden fade-in">
       <h2 class="text-xl font-semibold mb-2">🧠 LABRIOLAG</h2>
-      <p>Ecossistema de projetos digitais que une criatividade, marketing e tecnologia.</p>
+      <p>Ecossistema de projetos digitais que une criatividade, marketing e tecnologia. Desenvolvemos soluções como minigames personalizados, sistemas de gestão offline, cardápios digitais e ferramentas de engajamento para comércios e criadores.</p>
       <div class="flex flex-wrap gap-3 mt-4">
-        [43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/kevind3v/twitter-clone/tree/482ecf6eecd8626faf0f238680a2a145d84c6797/themes%2Fapp%2F_theme.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")<a href="mailto:Pix@xmail.net" target="_blank" class="bg-blue-600 text-white px
+        <a href="mailto:Pix@xmail.net" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded flex items-center gap-2">
+          📧 E-mail
+        </a>
+        <a href="https://wa.me/5511943198316" target="_blank" class="bg-green-500 text-white px-4 py-2 rounded flex items-center gap-2">
+          📱 WhatsApp
+        </a>
+        <a href="https://guilabriolag.github.io/HUB/" target="_blank" class="bg-gray-800 text-white px-4 py-2 rounded flex items-center gap-2">
+          🌐 Website
+        </a>
+        <a href="https://instagram.com/labriolag.hub" target="_blank" class="bg-pink-500 text-white px-4 py-2 rounded flex items-center gap-2">
+          📷 Instagram
+        </a>
+        <a href="https://github.com/Guilabriolag" target="_blank" class="bg-black text-white px-4 py-2 rounded flex items-center gap-2">
+          💻 GitHub
+        </a>
+      </div>
+      <div class="mt-4 text-sm">
+        <p><strong>Pix:</strong> Pix@xmail.net</p>
+        <p><strong>Bipa Sats:</strong> $Labriola</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+    const toggleTheme = document.getElementById('toggleTheme');
+
+    function activateTab(tabId) {
+      contents.forEach(content => {
+        content.classList.add('hidden');
+        content.classList.remove('fade-in');
+      });
+      tabs.forEach(tab => tab.classList.remove('active-tab'));
+      const target = document.getElementById(tabId);
+      target.classList.remove('hidden');
+      target.classList.add('fade-in');
+      document.querySelector(`.tab-btn[data-tab="${tabId}"]`).classList.add('active-tab');
+    }
+
+    tabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activateTab(btn.dataset.tab);
+      });
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      activateTab('visao');
+    });
+
+    toggleTheme.addEventListener('click', () => {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === 'light' ? 'dark' : 'light';
+    });
+  </script>
+</body>
+</html>
